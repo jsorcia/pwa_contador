@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Estados</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+    ></script>
+    <!-- Load Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body id="root">
+    <h3>Introducción a los Estados</h3>
+    <script type="text/babel">
+      //Definiendo un componente llamado Interpolar en el que se define un estado, el cuál está
+      // representado por la variable número. El estado se va a utilizar mediante el método useState()
+      // de React que recibe como parámetro el valor inicial, y que devuelve en este caso un estado y
+      // una función para manipular ese estado.
+      const Interpolar = () => {
+        const [numero, setNumero] = React.useState(0);
+        setInterval(() => {
+          setNumero(numero + 1); //No usar setNumero(numero++); porque así se está volviendo a redefinir la variable.
+          console.log(numero);
+        }, 1500);
+        return (
+          <div>
+            <h1>Número: {numero}</h1>
+            <hr />
+          </div>
+        );
+      };
+      ReactDOM.render(<Interpolar />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
